@@ -1,53 +1,25 @@
-import React, { useState,useEffect } from "react";
-import useQrReader from "react-qr-reader";
-import "./style.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams
-} from "react-router-dom";
+import logo from './logo.svg';
+import './App.css';
 
-export default function App() {
-  const [result, setResult] = useState("No result");
-  const [product,setProduct] = useState();
-  
-  let handleScan = data => {
-    if (data) {
-      setResult(data);
-    }
-  };
-
-  let handleError = err => {
-    // alert(err);
-  };
+function App() {
   return (
-    <div>
-       <Router>
-      <div>
-        <Switch>
-          <Route path="/:id" children={<Child />} />
-        </Switch>
-      </div>
-    </Router>
-      <useQrReader
-        delay={300}
-        onError={handleError}
-        onScan={handleScan}
-        style={{ width: "100%" }}
-        facingMode="environment"
-      />
-      <p>{result}</p>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
-function Child() {
-  let { id } = useParams();
 
-  return (
-    <div>
-      <h1>{id}</h1>
-    </div>
-  );
-}
+export default App;
