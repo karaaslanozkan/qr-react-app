@@ -1,39 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import useQrReader from 'react-qr-reader';
-import './style.css';
-import axios from 'axios';
-export default function App() {
-  const [result, setResult] = useState(
-    'https://jsonplaceholder.typicode.com/users/3'
-  );
-  const [product, setProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+import logo from './logo.svg';
+import './App.css';
 
-  let handleScan = (data) => {
-    if (data) {
-      axios(data)
-      .then((res) => setProduct(res.data))
-      .catch((e) => console.log(e))
-      .finally(() => setIsLoading(false));
-    }
-  };
-
-  let handleError = (err) => {
-    // alert(err);
-  };
+function App() {
   return (
-    <div>
-      <useQrReader
-        delay={300}
-        onError={handleError}
-        onScan={handleScan}
-        style={{ width: '100%' }}
-        facingMode="environment"
-      />
-      <p>
-        {isLoading && <div>Yükleniyor</div>}
-        Ürünün Fiyatı : {product.id}
-      </p>
-    </div>
-  );
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
+
+export default App;
