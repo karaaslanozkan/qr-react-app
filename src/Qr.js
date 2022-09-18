@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useQrReader from 'react-qr-reader';
 import './style.css';
 import axios from 'axios';
-export default function App() {
+export default function Qr() {
   const [result, setResult] = useState(
     'https://jsonplaceholder.typicode.com/users/3'
   );
