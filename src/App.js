@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import QrReader from 'react-qr-reader';
+import useQrReader from 'react-qr-reader';
 import './style.css';
 import axios from 'axios';
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
   };
   return (
     <div>
-      <QrReader
+      <useQrReader
         delay={300}
         onError={handleError}
         onScan={handleScan}
