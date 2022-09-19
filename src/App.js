@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import QrReader from 'react-qr-reader';
-import './style.css';
 import axios from 'axios';
 export default function App() {
   const [result, setResult] = useState(
